@@ -1,0 +1,4 @@
+﻿D:\VS2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(study.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  game.c
+D:\C Project\study\study\game.c(58,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  study.vcxproj -> D:\C Project\study\x64\Debug\三子棋游戏.exe
