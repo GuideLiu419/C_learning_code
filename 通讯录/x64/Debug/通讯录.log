@@ -1,5 +1,0 @@
-﻿  main.c
-D:\C Project\C_learning_code\通讯录\contact.h(15,12): error C2143: 语法错误: 缺少“;”(在“=”的前面)
-D:\C Project\C_learning_code\通讯录\contact.h(15,12): error C2059: 语法错误:“=”
-D:\C Project\C_learning_code\通讯录\contact.h(16,1): error C2059: 语法错误:“}”
-D:\C Project\C_learning_code\通讯录\main.c(21,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
