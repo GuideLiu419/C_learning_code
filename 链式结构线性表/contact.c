@@ -22,10 +22,26 @@ Status IsEmpty(Linklist head)
 		return TRUE;
 }
 
-//销毁单链表
+//清空单链表
 Status DestroyList(Linklist head)
 {
+	if (head->next == NULL)
+	{
+		printf("链表为空，无需清空");
+		return OK;
+	}
+	Linklist p,L = head->next;
+	head->data.num = 0;
 
+	while (L)
+	{
+		p = L;
+		L = L->next;
+		free(p);
+	}
+	head->next = NULL;
+	printf("链表已清空");
+	return OK;
 }
 
 //遍历打印链表
@@ -72,4 +88,46 @@ Status CreatList_H(Linklist* head)
 	}
 	printf("链表创建成功\n");
 	return OK;
+}
+
+//尾插法整表创建单链表
+Status CreatList_T(Linklist* head)
+{
+	int n;
+	Linklist p, r;
+	r = (*head);
+	while (r->next)
+		r = r->next;
+
+	printf("请输入建表规模\n");
+	scanf("%d", &n);
+
+	for (int i = 0; i < n; i++)
+	{
+		p = (Linklist)malloc(sizeof(Node));
+
+		if (NULL == p)
+		{
+			printf("链表创建失败\n");
+			return ERROR;
+		}
+
+		p->data.name[0] = 65 + i;//用ABCD命名
+		p->data.name[1] = '\0';
+		p->data.num = rand() % 100 + 1;
+
+		(*head)->data.num++;//计数
+
+		r->next = p;
+		r = p;
+		p->next = NULL;
+	}
+	printf("链表创建成功\n");
+	return OK;
+}
+
+//取第i个元素
+Status GetElem_bynum(Linklist head, unsigned int i)
+{
+
 }

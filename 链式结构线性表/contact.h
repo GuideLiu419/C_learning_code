@@ -44,5 +44,14 @@ Status DestroyList(Linklist head);
 Status ShowList(Linklist head);
 //头插法整表创建单链表
 Status CreatList_H(Linklist* head);
+//尾插法整表创建单链表
+Status CreatList_T(Linklist* head);
+//取第i个元素
+Status GetElem_bynum(Linklist head, unsigned int i);
+//按值查找
+
+//插入节点
+
+//删除节点
 
 
