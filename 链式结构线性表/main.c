@@ -3,13 +3,13 @@
 
 void menu()
 {
-	printf("\n\n—————————————————————————————————\n");
-	printf("|  1.显示\t\t2.插入	|\n");
-	printf("|  3.删除\t\t4.销毁 	|\n");
-	printf("|  5.头插法建表\t\t6.显示	|\n");
-	printf("|  7.尾插法建表\t\t8.插入	|\n");
-	printf("|  9.添加\t\t0.退出	|\n");
-	printf("—————————————————————————————————\n\n");
+	printf("\n\n—————————————————————————————————————————\n");
+	printf("|  1.显示\t\t2.插入	\t|\n");
+	printf("|  3.删除\t\t4.销毁 	\t|\n");
+	printf("|  5.头插法建表\t\t6.顺序查找\t|\n");
+	printf("|  7.尾插法建表\t\t8.按值查找\t|\n");
+	printf("|  9.查找\t\t0.退出	\t|\n");
+	printf("—————————————————————————————————————————\n\n");
 }
 
 int main()
@@ -37,8 +37,10 @@ int main()
 				ShowList(head);
 			break;
 		case 2:
+			InsertElem(&head);
 			break;
 		case 3:
+			DeletElem(&head);
 			break;
 		case 4:
 			DestroyList(head);
@@ -47,9 +49,19 @@ int main()
 			CreatList_H(&head);
 			break;
 		case 6:
+		{
+			int i;
+			printf("请输入查找位置\n");
+			scanf("%d", &i);
+			GetElem_bynum(head, i);
 			break;
+		}
+
 		case 7:
 			CreatList_T(&head);
+			break;
+		case 8:
+			LocateElem(head);
 			break;
 		case 0:
 			input = 0;

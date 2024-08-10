@@ -30,7 +30,7 @@ Status DestroyList(Linklist head)
 		printf("链表为空，无需清空");
 		return OK;
 	}
-	Linklist p,L = head->next;
+	Linklist p, L = head->next;
 	head->data.num = 0;
 
 	while (L)
@@ -129,5 +129,99 @@ Status CreatList_T(Linklist* head)
 //取第i个元素
 Status GetElem_bynum(Linklist head, unsigned int i)
 {
+	Linklist L = head;
+	if (i > (head->data.num))
+	{
+		printf("链表不够长\n");
+		return ERROR;
+	}
 
+	for (int k = 0; k < i; k++)
+	{
+		L = L->next;
+	}
+	printf("第%d个元素是%s", i, L->data.name);
+}
+
+Status LocateElem(Linklist head)
+{
+	char str[10];
+	printf("请输入要查找的字符串");
+	scanf("%s", str);
+	Linklist L = head->next;
+	for (int i = 0; i < head->data.num; i++)
+	{
+		if (0 == strcmp(str, L->data.name))
+		{
+			printf("表中第%d个元素是%s", i + 1, str);
+			return OK;
+		}
+		L = L->next;
+	}
+
+	printf("表中没有 %s 元素", str);
+	return ERROR;
+}
+
+//在第i个位置之前插入元素
+Status InsertElem(Linklist* head)
+{
+	int i;
+	printf("请输入要插入的位置\n");
+	scanf("%d", &i);
+
+	if (i > (*head)->data.num + 1 || i < 1)
+	{
+		printf("无法插入的位置");
+		return ERROR;
+	}
+	Linklist L = (*head);//记录头结点的位置，操作完后重置头结点位置
+	Linklist insert = malloc((Linklist)sizeof(ElemType));
+
+	printf("请输入插入元素的名称:\n");
+	scanf("%s", insert->data.name);
+	printf("请输入插入元素的编号:\n");
+	scanf("%d", &insert->data.num);
+
+	for (int j = 0; j < i - 1; j++)
+		(*head) = (*head)->next;
+
+	insert->next = (*head)->next;
+	(*head)->next = insert;
+
+	printf("插入成功\n");
+
+	(*head) = L;//重置头结点位置
+	(*head)->data.num++;//计数
+
+	return OK;
+}
+
+//删除节点
+Status DeletElem(Linklist* head)
+{
+	unsigned int i;
+	printf("请输入要删除的元素的位置\n");
+	scanf("%u", &i);
+
+	if (i > (*head)->data.num + 1 || i < 1)
+	{
+		printf("无法插入的位置");
+		return ERROR;
+	}
+
+	Linklist L = (*head);//记录头结点的位置，操作完后重置头结点位置
+
+	for (int j = 0; j < i - 1; j++)
+		(*head) = (*head)->next;
+
+	Linklist del = (*head)->next;
+	(*head)->next = del->next;
+	free(del);
+	printf("删除成功\n");
+
+	(*head) = L;//重置头结点位置
+	(*head)->data.num--;//计数
+
+	return OK;
 }

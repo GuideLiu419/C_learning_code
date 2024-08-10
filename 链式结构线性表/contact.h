@@ -49,9 +49,10 @@ Status CreatList_T(Linklist* head);
 //取第i个元素
 Status GetElem_bynum(Linklist head, unsigned int i);
 //按值查找
-
+Status LocateElem(Linklist head);
 //插入节点
-
+Status InsertElem(Linklist *head);
 //删除节点
+Status DeletElem(Linklist *head);
 
 
