@@ -11,3 +11,5 @@ void PreOrderTraverse(BiTree T)
 	PreOrderTraverse(T->lchild);
 	PreOrderTraverse(T->rchild);
 }
+
+//∫Û–Ú
